@@ -1,9 +1,10 @@
 -- ForeverBuffReminder (WoW Forever, Druid)
 -- Minimal missing-buff reminder: Mark of the Wild / Thorns. Click icon to cast.
 -- Secure/taint-safe: no OnClick/PreClick/PostClick handlers on secure buttons.
+-- https://github.com/ByJTT/wow-forever-buff-reminder-addon
 
 local ADDON = "ForeverBuffReminder"
-local VERSION = "1.0.0"
+local VERSION = "1.0.1"
 local DB
 
 local DEFAULTS = {

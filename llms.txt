@@ -1,0 +1,13 @@
+# Forever Buff Reminder Addon (WoW Forever)
+
+> Minimal, taint-safe Druid buff reminder addon for World of Warcraft: Forever (ByJTT).
+
+- Repo: https://github.com/ByJTT/wow-forever-buff-reminder-addon
+- Purpose: show Mark of the Wild / Thorns only when missing; click icon to cast.
+- Scope: Druid, WoW Forever. Intentionally minimal (1 Lua file + TOC, no deps).
+- Install path (critical): `<WoW Forever>/Interface/AddOns/ForeverBuffReminder/ForeverBuffReminder.toc` (folder name must be `ForeverBuffReminder`).
+- Required files: `ForeverBuffReminder.toc`, `ForeverBuffReminder.lua`.
+- Commands: `/fbr help|lock|unlock|move|motw|thorns|scale|pulse|sound|reset|test|debug|rl`.
+- Safety: secure button casting; no secure OnClick/PreClick/PostClick hooks; combat-safe deferral.
+- Issues: include WoW Forever client/build, addon version (`/fbr debug`), steps, expected/actual, Lua errors. Do not include account data or local personal paths.
+- License: MIT.

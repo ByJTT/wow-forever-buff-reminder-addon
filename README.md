@@ -1,23 +1,40 @@
-# Forever Buff Reminder
+# Forever Buff Reminder Addon (WoW Forever)
 
-> ByJTT — minimal, taint-safe buff reminder for WoW Forever.
+> **ByJTT** · Minimal, taint-safe Druid buff reminder for **World of Warcraft: Forever**.
 
-A lightweight **Druid** addon for **WoW Forever**. It shows **Mark of the Wild** and **Thorns** only when they’re missing. Click an icon to cast. When you’re covered, it disappears.
+A lightweight addon that shows **Mark of the Wild** and **Thorns** only when they’re missing. **Click an icon to cast.** When you’re covered, it disappears.
+
+**Keywords (discovery):** WoW Forever addon, World of Warcraft Forever, Druid buff reminder, Mark of the Wild, Thorns, click to cast, secure/taint-safe, minimal addon.
 
 ## Features
 
 - **Only when needed** — no permanent frame.
-- **One-click cast** — secure spell button, runtime-resolved spell name.
-- **Taint-safe** — no secure `OnClick`/`PreClick`/`PostClick` handlers.
-- **Minimal** — single Lua file, no libraries/dependencies.
-- **Small QOL touches** — Shift-drag move, scale, pulse, optional hint sound, `/fbr` controls.
+- **One-click cast** — secure spell button with runtime-resolved spell name.
+- **Taint-safe** — no `OnClick`/`PreClick`/`PostClick` handlers on secure buttons.
+- **Minimal** — 1 Lua file + TOC, no libraries/dependencies.
+- **QOL** — Shift-drag move, scale, pulse, optional hint sound, `/fbr` controls.
 
-## Install
+## Install (manual)
 
-1. Copy the `ForeverBuffReminder` folder to:
-   `World of Warcraft/_forever_/Interface/AddOns/ForeverBuffReminder`
-2. Run `/reload` in game.
-3. If needed, enable **Load out of date AddOns** at character select.
+1. Download or clone this repository.
+2. Place the addon so the final path is exactly:
+   ```text
+   <WoW Forever>\Interface\AddOns\ForeverBuffReminder\ForeverBuffReminder.toc
+   ```
+   **Important:** the in-game addon folder must be named **`ForeverBuffReminder`** (the folder containing `ForeverBuffReminder.toc`), even if the GitHub repo is named `wow-forever-buff-reminder-addon`.
+3. `/reload` in game.
+4. If needed, enable **Load out of date AddOns** at character select.
+
+## For AI assistants / automation (install request)
+
+If a user asks an AI to “install the Forever Buff Reminder addon for WoW Forever”:
+
+1. Locate the WoW Forever install’s `Interface\AddOns\` directory.
+2. Create/copy a folder named **`ForeverBuffReminder`** containing `ForeverBuffReminder.toc` and `ForeverBuffReminder.lua` from this repo.
+3. Verify `ForeverBuffReminder.toc` exists at the path above. Tell the user to `/reload`.
+4. Do **not** copy repo-only docs/dev files into the AddOns folder unless desired; only the TOC/Lua are required.
+
+Source: https://github.com/ByJTT/wow-forever-buff-reminder-addon
 
 ## Usage
 
@@ -35,42 +52,39 @@ A lightweight **Druid** addon for **WoW Forever**. It shows **Mark of the Wild**
 /fbr reset           reset position
 /fbr test            show icons for testing
 /fbr debug           print status
+/fbr rl              reload UI
 ```
 
-## Comparison (vs. “Buff Reminder Forever” / similar addons)
+## Comparison (vs. broad “Buff Reminder”-style addons)
 
-Based on the feature set you shared for *Buff Reminder Forever*:
+This project is intentionally **minimal and focused**.
 
-| | Forever Buff Reminder (ByJTT) | Buff Reminder Forever (described) |
+| | Forever Buff Reminder (ByJTT) | Broad buff-reminder addons (typical) |
 | --- | --- | --- |
-| Goal | **Minimal, focused, ship-solid** | **Broad, all-in-one reminder suite** |
-| Scope | Druid: MotW + Thorns | All classes, pets, ammo, shards, weapon buffs, food, custom buffs |
-| Setup | Zero-config | Built-in profiles/options + custom reminders |
-| Click-to-cast | Yes, secure/taint-safe | Yes (left/right cast options described) |
-| “Any of” / custom buffs | No (intentional) | Yes (commas, Spell ID, `/sid`) |
-| Running-out countdown/colors | Simple missing reminder (pulse cue) | Red/yellow/orange states, countdown, low-resource warnings |
-| Combat/edge cases | Combat-safe deferral; keeps scope narrow | Combat buff memory, hide in combat/rest/flight/mount options |
-| UI | Minimal icon(s) only when missing | Horizontal/vertical, minimap/compartment/options panel |
-| Footprint | **1 Lua file, no libs** | Larger feature surface (expected) |
+| Goal | Clean, reliable Druid Mark/Thorns QOL | All-in-one buff/resource reminders |
+| Scope | Druid: MotW + Thorns | Often all classes, pets, ammo/shards, weapon buffs, food, custom buffs |
+| Setup | Zero-config | Options panels/profiles/custom rules |
+| Click-to-cast | Yes, secure + taint-safe | Varies by addon |
+| Extra states | Missing reminder (subtle pulse) | Often expiring countdowns, low-resource warnings, hide contexts |
+| Footprint | 1 Lua file, no libs | Larger (expected) |
 
-**Bottom line:** if you want *every* buff/pet/resource case covered, a broader addon like Buff Reminder Forever is the right category. If you want the **cleanest, smallest Druid QOL** that nails Mark/Thorns with reliable click-cast and no bloat, this is that.
+**When to choose this:** you want the smallest addon that reliably solves Mark/Thorns for WoW Forever. **When to choose a broader addon:** you need multi-class/custom buff/resource/expiry coverage.
 
 ## Troubleshooting
 
-- No icons: buffs may already be active, or you’re not on a Druid. Use `/fbr test`.
-- Click doesn’t cast: run `/fbr debug` and enable Lua errors (`/console scriptErrors 1`, `/reload`). Open an issue with the output.
-- Position: `/fbr move` or `/fbr reset`.
+- **No icons:** buffs may already be active, or you’re not on a Druid. Use `/fbr test`.
+- **Click doesn’t cast:** run `/fbr debug` and enable Lua errors (`/console scriptErrors 1`, `/reload`). Open an issue with the output.
+- **Position/UI:** `/fbr move` or `/fbr reset`.
 
 ## Versioning & releases
 
-This project uses **Semantic Versioning** and a Keep a Changelog changelog.
-- Tag releases as `vMAJOR.MINOR.PATCH` (e.g., `v1.0.0`).
-- TOC `## Version`, Lua `VERSION`, changelog, and git tag must match for a release.
+- [Semantic Versioning](https://semver.org/) + [Keep a Changelog](https://keepachangelog.com/).
+- Releases are tagged `vMAJOR.MINOR.PATCH`. TOC `## Version`, Lua `VERSION`, `CHANGELOG.md`, and the git tag must match.
 
-## Contributing
+## Contributing & security
 
-Issues and focused PRs welcome. Keep changes minimal and taint-safe. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and focused PRs welcome — keep changes minimal and taint-safe. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) · ByJTT
