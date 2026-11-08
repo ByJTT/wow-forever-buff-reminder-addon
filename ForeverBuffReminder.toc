@@ -1,0 +1,11 @@
+## Interface: 16001, 30300
+## Title: Forever Buff Reminder
+## Notes: Lightweight Druid buff reminder for WoW Forever. Shows Mark of the Wild & Thorns when missing. Click to cast. /fbr
+## Author: Forever Buff Reminder Contributors
+## Version: 2.1.0
+## SavedVariables: ForeverBuffReminderDB
+## IconTexture: 136078
+## X-Category: Buffs & Debuffs
+## X-Website: https://github.com/jordan-thirkle/forever-buff-reminder
+
+ForeverBuffReminder.lua

@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a problem with Forever Buff Reminder
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please keep reports specific and avoid sharing personal/account information.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: What did you expect, and what actually happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. /fbr test
+        2. Click icon...
+    validations:
+      required: true
+  - type: textarea
+    id: debug
+    attributes:
+      label: /fbr debug output
+      description: Paste output from `/fbr debug` (and any Lua errors with `/console scriptErrors 1`).
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Addon/client info
+      placeholder: "Forever Buff Reminder v2.1.0, WoW Forever"
