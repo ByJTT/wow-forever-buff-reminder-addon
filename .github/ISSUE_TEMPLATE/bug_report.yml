@@ -1,16 +1,23 @@
 name: Bug report
-description: Report a problem with Forever Buff Reminder
+description: Report a problem (ByJTT / Forever Buff Reminder)
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Please keep reports specific and avoid sharing personal/account information.
+        Keep reports specific. Do not include personal/account data.
+  - type: input
+    id: version
+    attributes:
+      label: Addon version
+      placeholder: "v1.0.0 (from /fbr debug)"
+    validations:
+      required: true
   - type: textarea
     id: summary
     attributes:
       label: What happened?
-      description: What did you expect, and what actually happened?
+      description: Expected vs actual behavior.
     validations:
       required: true
   - type: textarea
@@ -19,17 +26,17 @@ body:
       label: Steps to reproduce
       placeholder: |
         1. /fbr test
-        2. Click icon...
+        2. Click icon
     validations:
       required: true
   - type: textarea
     id: debug
     attributes:
-      label: /fbr debug output
-      description: Paste output from `/fbr debug` (and any Lua errors with `/console scriptErrors 1`).
+      label: /fbr debug output and Lua errors
+      description: Paste `/fbr debug`. If relevant, enable `/console scriptErrors 1` and include the error.
       render: text
   - type: input
-    id: version
+    id: client
     attributes:
-      label: Addon/client info
-      placeholder: "Forever Buff Reminder v2.1.0, WoW Forever"
+      label: Client
+      placeholder: "WoW Forever (interface/build if known)"

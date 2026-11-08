@@ -1,8 +1,9 @@
--- ForeverBuffReminder: polished, lightweight buff reminder for WoW Forever (Druid).
--- Shows Mark of the Wild / Thorns only when missing. Click an icon to cast.
--- Secure casting: no OnClick/PreClick/PostClick on secure buttons (taint-safe).
+-- ForeverBuffReminder (WoW Forever, Druid)
+-- Minimal missing-buff reminder: Mark of the Wild / Thorns. Click icon to cast.
+-- Secure/taint-safe: no OnClick/PreClick/PostClick handlers on secure buttons.
 
 local ADDON = "ForeverBuffReminder"
+local VERSION = "1.0.0"
 local DB
 
 local DEFAULTS = {
@@ -331,7 +332,7 @@ local function Init()
     DB = ForeverBuffReminderDB
     for k, v in pairs(DEFAULTS) do if DB[k] == nil then DB[k] = v end end
     ApplyPosition(); ApplyVisuals(); Refresh()
-    Print("ready. |cff66c6ff/fbr|r options, |cff66c6ff/fbr move|r to reposition.")
+    Print("v" .. VERSION .. " ready. |cff66c6ff/fbr|r options, |cff66c6ff/fbr move|r to reposition.")
 end
 
 root:SetScript("OnEvent", function(_, event, arg1)
@@ -400,7 +401,7 @@ SlashCmdList.FOREVERBUFFREMINDER = function(msg)
         DB.point, DB.relPoint, DB.x, DB.y = "CENTER", "CENTER", 0, -170
         ApplyPosition(); Print("Position reset.")
     elseif cmd == "debug" then
-        Print(string.format("v2.1 combat=%s locked=%s class=%s", tostring(InCombatLockdown()), tostring(DB.locked), tostring(select(2, UnitClass("player")))))
+        Print(string.format("v%s combat=%s locked=%s class=%s", VERSION, tostring(InCombatLockdown()), tostring(DB.locked), tostring(select(2, UnitClass("player")))))
         for _, t in ipairs(TRACKED) do
             local b = buttons[t.key]
             local name = b and b._spellName or GetSpellData(t.id, t.fallback)
