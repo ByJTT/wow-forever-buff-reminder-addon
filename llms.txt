@@ -1,13 +1,17 @@
-# Forever Buff Reminder Addon (WoW Forever)
+# wow-forever-buff-reminder-addon — WoW Forever Buff Reminder Addon ByJTT
 
-> Minimal, taint-safe Druid buff reminder addon for World of Warcraft: Forever (ByJTT).
+> Taint-safe, WoW-authentic missing-buff reminder for World of Warcraft: Forever. ByJTT foundation reference implementation. By ByJTT (solo studio).
 
 - Repo: https://github.com/ByJTT/wow-forever-buff-reminder-addon
-- Purpose: show Mark of the Wild / Thorns only when missing; click icon to cast.
-- Scope: Druid, WoW Forever. Intentionally minimal (1 Lua file + TOC, no deps).
-- Install path (critical): `<WoW Forever>/Interface/AddOns/ForeverBuffReminder/ForeverBuffReminder.toc` (folder name must be `ForeverBuffReminder`).
-- Required files: `ForeverBuffReminder.toc`, `ForeverBuffReminder.lua`.
-- Commands: `/fbr help|lock|unlock|move|motw|thorns|scale|pulse|sound|reset|test|debug|rl`.
-- Safety: secure button casting; no secure OnClick/PreClick/PostClick hooks; combat-safe deferral.
-- Issues: include WoW Forever client/build, addon version (`/fbr debug`), steps, expected/actual, Lua errors. Do not include account data or local personal paths.
+- Display name (TOC Title, “AddonName ByJTT” style): `WoW Forever Buff Reminder Addon ByJTT`
+- In-game addon folder name (critical, must remain stable): `ForeverBuffReminder`
+- Purpose: show missing buffs as secure click-to-cast icons (only when needed). Data-driven engine + curated catalog; scales to all classes/races/buffs (curated v1, extensible).
+- Scope/target: World of Warcraft: Forever (Interface 16001, 30300). Feature-detected API fallbacks. No Ace/framework deps.
+- Install path: `<WoW Forever>/Interface/AddOns/ForeverBuffReminder/ForeverBuffReminder.toc`
+- Required in-game files: `ForeverBuffReminder.toc`, `ForeverBuffReminder.lua` (and `Bindings.xml` if present).
+- Commands: `/fbr help|config|lock|unlock|move|scale|grow|pulse|sound|form|reset|test|debug|onboarding|rl` (legacy: `motw|thorns`).
+- Safety: SecureActionButtonTemplate attribute casting; **no** `OnClick`/`PreClick`/`PostClick` on secure buttons; protected changes deferred out of combat (`InCombatLockdown`/`PLAYER_REGEN_ENABLED`).
+- Branding/support (public): by ByJTT · https://byjtt.com · https://github.com/ByJTT · Support placeholder: https://buymeacoffee.com/ByJTT (replace with real URL when ready).
+- Issues: include WoW Forever build/interface, addon version (`/fbr debug`), steps, expected/actual, Lua errors (`/console scriptErrors 1`). No account data/local personal paths.
 - License: MIT.
+- **Start here (full context):** [`HANDOFF.md`](HANDOFF.md) — current state, decisions, verification checklist, open items. Agent rules/invariants: [`AGENTS.md`](AGENTS.md). Dev/debug: [`DEV.md`](DEV.md).

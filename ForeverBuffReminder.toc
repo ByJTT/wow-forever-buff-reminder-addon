@@ -1,12 +1,15 @@
 ## Interface: 16001, 30300
-## Title: Forever Buff Reminder
-## Notes: Minimal Druid buff reminder for WoW Forever. Shows Mark of the Wild & Thorns when missing. Click to cast. /fbr
+## Title: WoW Forever Buff Reminder Addon ByJTT
+## Notes: Data-driven buff reminders for all classes/races (WoW Forever). Secure click-to-cast, WoW-authentic UI + onboarding. /fbr config | by ByJTT
 ## Author: ByJTT
-## Version: 1.0.1
+## Version: 2.0.0
 ## SavedVariables: ForeverBuffReminderDB
 ## IconTexture: 136078
 ## X-Category: Buffs & Debuffs
 ## X-License: MIT
 ## X-Website: https://github.com/ByJTT/wow-forever-buff-reminder-addon
+## X-ByJTT-Repo: wow-forever-buff-reminder-addon
+## X-ByJTT-Web: https://byjtt.com
+## X-ByJTT-Support: https://buymeacoffee.com/ByJTT
 
 ForeverBuffReminder.lua
