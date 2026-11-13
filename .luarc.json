@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "Lua 5.1"
+  },
+  "workspace": {
+    "checkThirdParty": false
+  },
+  "diagnostics": {
+    "globals": [
+      "CreateFrame",
+      "UIParent",
+      "DEFAULT_CHAT_FRAME",
+      "SlashCmdList",
+      "SLASH_FOREVERBUFFREMINDER1",
+      "ForeverBuffReminderDB",
+      "InCombatLockdown",
+      "UnitAffectingCombat",
+      "UnitClass",
+      "UnitRace",
+      "UnitName",
+      "UnitLevel",
+      "UnitExists",
+      "UnitBuff",
+      "UnitAura",
+      "GetSpellInfo",
+      "GetSpellCooldown",
+      "GetItemInfo",
+      "GetItemCount",
+      "GetItemIcon",
+      "GetItemCooldown",
+      "IsSpellKnown",
+      "IsPlayerSpell",
+      "IsUsableSpell",
+      "GetTime",
+      "GetLocale",
+      "C_Spell",
+      "C_Timer",
+      "PlaySound",
+      "Settings",
+      "InterfaceOptions_AddCategory",
+      "InterfaceOptionsFrame_OpenToCategory",
+      "GameFontNormal",
+      "GameFontNormalLarge",
+      "GameFontHighlight",
+      "GameFontHighlightSmall",
+      "GameFontHighlightLarge"
+    ],
+    "disable": [
+      "lowercase-global",
+      "undefined-field"
+    ]
+  },
+  "telemetry": {
+    "enable": false
+  }
+}
