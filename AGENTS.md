@@ -1,4 +1,4 @@
-# AGENTS.md — wow-forever-buff-reminder-addon ByJTT (Foundation)
+# AGENTS.md - wow-forever-buff-reminder-addon ByJTT (Foundation)
 
 Guidance for AI coding agents and automated contributors.
 
@@ -6,12 +6,12 @@ Guidance for AI coding agents and automated contributors.
 
 ## Project
 
-- **Repo:** `wow-forever-buff-reminder-addon` (ByJTT). **Display name (TOC):** `WoW Forever Buff Reminder Addon ByJTT` (“AddonName ByJTT” style). **By:** ByJTT (solo studio).
+- **Repo:** `wow-forever-buff-reminder-addon` (ByJTT). **Display name (TOC):** `WoW Forever Buff Reminder Addon ByJTT` ("AddonName ByJTT" style). **By:** ByJTT (solo studio).
 - **What:** WoW Forever missing-buff reminder. Secure click-to-cast icons shown only when needed. **ByJTT foundation reference**: data-driven engine + curated buff catalog, scalable to all classes/races/buffs (curated v1, extensible), WoW-authentic UI/UX + onboarding.
 - **Target:** World of Warcraft: Forever (Interface 16001, 30300). Feature-detect APIs/fallbacks; verify in-game.
 - **In-game install (folder name must remain stable):** `<WoW Forever>/Interface/AddOns/ForeverBuffReminder/ForeverBuffReminder.toc`
-- **Files that ship in-game:** `ForeverBuffReminder.toc`, `ForeverBuffReminder.lua`, `Bindings.xml` (required by TOC/loadout as applicable). Repo docs/dev files (`README`, `LICENSE`, `CHANGELOG`, `CONTRIBUTING`, `.github/`, `AGENTS.md`, `HANDOFF.md`, `llms.txt`, `SECURITY.md`, `DEV.md`) are source-control only.
-- **Public branding/links (safe to include):** https://byjtt.com · https://github.com/ByJTT · repo https://github.com/ByJTT/wow-forever-buff-reminder-addon · support placeholder https://buymeacoffee.com/ByJTT (replace when real URL is confirmed).
+- **Files that ship in-game:** `ForeverBuffReminder.toc` and `ForeverBuffReminder.lua` (plus any additional files explicitly listed in the TOC, if added). Repo docs/dev files (`README`, `LICENSE`, `CHANGELOG`, `CONTRIBUTING`, `.github/`, `AGENTS.md`, `HANDOFF.md`, `llms.txt`, `SECURITY.md`, `DEV.md`) are source-control only.
+- **Public branding/links (safe to include):** https://byjtt.com - https://github.com/ByJTT - repo https://github.com/ByJTT/wow-forever-buff-reminder-addon - support placeholder https://buymeacoffee.com/ByJTT (replace when real URL is confirmed).
 
 ## Constraints (do not break)
 

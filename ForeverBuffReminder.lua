@@ -1,4 +1,4 @@
--- wow-forever-buff-reminder-addon (WoW Forever) — ByJTT Foundation Reference
+-- wow-forever-buff-reminder-addon (WoW Forever) - ByJTT Foundation Reference
 -- Display name: "WoW Forever Buff Reminder Addon ByJTT" (AddonName ByJTT style)
 -- Data-driven missing-buff reminders for all classes/races (curated catalog, extensible).
 -- Secure click-to-cast (taint-safe): NO OnClick/PreClick/PostClick on secure buttons.
@@ -217,7 +217,7 @@ local function MigrateDB(catalog)
 end
 
 --------------------------------------------------------------------------------
--- Buff catalog (curated v1, WoW Forever target) — data-driven, extensible
+-- Buff catalog (curated v1, WoW Forever target) - data-driven, extensible
 -- Spec: id, classes?, races?, category, label, short, color, enabledDefault,
 --       aura={spellIds={}, names={}}, cast={spellIds={}, names={}},
 --       priority, note?
@@ -437,7 +437,7 @@ local function ApplyVisuals()
     root:SetAlpha(DB.alpha or 1)
 end
 
--- Secure attribute apply — ONLY out of combat. Centralized for taint safety.
+-- Secure attribute apply - ONLY out of combat. Centralized for taint safety.
 local function UpdateSecure(btn, st)
     if Compat.InCombat() then pendingSecure = true; return false end
     -- clear legacy/variant attributes
@@ -482,7 +482,7 @@ local function SetTooltip(btn)
     if st and st.known == false then
         GameTooltip:AddLine("Spell not known/available on this character.", 1, 0.6, 0.2, true)
     end
-    GameTooltip:AddLine("|cff888888Shift+Drag|r to move  •  |cff888888/fbr config|r settings", 0.55, 0.55, 0.55)
+    GameTooltip:AddLine("|cff888888Shift+Drag|r to move - |cff888888/fbr config|r settings", 0.55, 0.55, 0.55)
     GameTooltip:AddLine("|cff888888WoW Forever Buff Reminder Addon ByJTT|r", 0.45, 0.45, 0.45)
     GameTooltip:Show()
 end
@@ -676,7 +676,7 @@ local function ShowOnboarding(force)
         onboard.body = body
         local by = onboard:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
         by:SetPoint("TOP", title, "BOTTOM", 0, -2)
-        by:SetText("|cffaaaaaaby ByJTT · " .. (ByJTT.Brand.web or "byjtt.com") .. "|r")
+        by:SetText("|cffaaaaaaby ByJTT - " .. (ByJTT.Brand.web or "byjtt.com") .. "|r")
         onboard.by = by
 
         local function mkBtn(text, x, y, w, onClick)
@@ -687,7 +687,7 @@ local function ShowOnboarding(force)
             b:SetScript("OnClick", onClick)
             return b
         end
-        mkBtn("Got it", 0, 16, 110, function() DismissOnboarding(true); Print("You're set. Missing buffs show as icons — click to cast. /fbr config for settings.") end)
+        mkBtn("Got it", 0, 16, 110, function() DismissOnboarding(true); Print("You're set. Missing buffs show as icons - click to cast. /fbr config for settings.") end)
         mkBtn("Open Settings", -125, 16, 110, function() DismissOnboarding(true); ns.OpenOptions() end)
         mkBtn("Later", 125, 16, 70, function() DismissOnboarding(false) end)
     end
@@ -695,10 +695,10 @@ local function ShowOnboarding(force)
     local className = p.class or "your class"
     onboard.body:SetText(
         "Shows your missing class buffs as secure, click-to-cast icons (taint-safe). Only appears when something is missing.\n\n" ..
-        "• Recommended buffs for |cffffd200" .. className .. "|r are enabled by default.\n" ..
-        "• |cff00ff00Click|r an icon to cast. |cff888888Shift+Drag|r to move (or unlock via /fbr).\n" ..
-        "• Changes in combat are deferred for safety.\n\n" ..
-        "Support: " .. (ByJTT.Brand.supportLabel or "Buy Me a Coffee") .. " (placeholder) — " .. (ByJTT.Brand.support or "") .. "\n" ..
+        "-  Recommended buffs for |cffffd200" .. className .. "|r are enabled by default.\n" ..
+        "-  |cff00ff00Click|r an icon to cast. |cff888888Shift+Drag|r to move (or unlock via /fbr).\n" ..
+        "-  Changes in combat are deferred for safety.\n\n" ..
+        "Support: " .. (ByJTT.Brand.supportLabel or "Buy Me a Coffee") .. " (placeholder) - " .. (ByJTT.Brand.support or "") .. "\n" ..
         "Use |cff66c6ff/fbr config|r for settings."
     )
     onboard:Show()
@@ -711,8 +711,9 @@ ns.ShowOnboarding = ShowOnboarding
 local optionsPanel
 local function EnsureOptionsPanel()
     if optionsPanel then return optionsPanel end
-    local panel = CreateFrame("Frame", ADDON_NAME .. "OptionsPanel", UIParent)
+    local panel = CreateFrame("Frame", ADDON_NAME .. "OptionsPanel", UIParent, BackdropTemplateMixin and "BackdropTemplate" or nil)
     panel.name = DISPLAY_NAME
+    panel:Hide() -- shown on demand (Blizzard settings, or standalone fallback)
     local title = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     title:SetPoint("TOPLEFT", 16, -16)
     title:SetText("|cff66c6ffWoW Forever Buff Reminder Addon|r |cffaaaaaaby ByJTT|r")
@@ -773,7 +774,7 @@ local function EnsureOptionsPanel()
 
     local buffsHdr = panel:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     buffsHdr:SetPoint("TOPLEFT", 16, y)
-    buffsHdr:SetText("Buffs (curated catalog) — toggle rules for your account/character")
+    buffsHdr:SetText("Buffs (curated catalog) - toggle rules for your account/character")
     y = y - 8
 
     -- About / Support (ByJTT foundation branding)
@@ -781,8 +782,8 @@ local function EnsureOptionsPanel()
     about:SetPoint("BOTTOMLEFT", panel, "BOTTOMLEFT", 16, 14)
     about:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -16, 14)
     about:SetJustifyH("LEFT")
-    about:SetText("|cff888888" .. DISPLAY_NAME .. " · v" .. VERSION .. " · by " .. (ByJTT.Brand.name or "ByJTT") ..
-        " · " .. (ByJTT.Brand.web or "") .. " · " .. (ByJTT.Brand.github or "") ..
+    about:SetText("|cff888888" .. DISPLAY_NAME .. " - v" .. VERSION .. " - by " .. (ByJTT.Brand.name or "ByJTT") ..
+        " - " .. (ByJTT.Brand.web or "") .. " - " .. (ByJTT.Brand.github or "") ..
         "\nSupport (placeholder): " .. (ByJTT.Brand.support or "") .. "|r")
     panel._about = about
 
@@ -856,7 +857,43 @@ function ns.OpenOptions()
         InterfaceOptionsFrame_OpenToCategory(p) -- legacy quirk
         return
     end
-    if p then p:Show(); Print("Options panel opened (fallback).") else Print("Options UI not available; use /fbr commands.") end
+    if not p then Print("Options UI not available; use /fbr commands."); return end
+
+    -- Fallback: standalone movable dialog (Blizzard settings unavailable, e.g. Classic client).
+    p:ClearAllPoints()
+    p:SetSize(560, 480)
+    p:SetPoint("CENTER", UIParent, "CENTER", 0, 40)
+    p:SetFrameStrata("DIALOG")
+    p:SetClampedToScreen(true)
+    p:EnableMouse(true)
+    p:SetMovable(true)
+    p:RegisterForDrag("LeftButton")
+    p:SetScript("OnDragStart", function(self) if not Compat.InCombat() then self:StartMoving() end end)
+    p:SetScript("OnDragStop", function(self) self:StopMovingOrSizing() end)
+    if p.SetBackdrop and not p._backdropSet then
+        p:SetBackdrop({
+            bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+            edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+            tile = true, tileSize = 32, edgeSize = 32,
+            insets = { left = 11, right = 12, top = 12, bottom = 11 }
+        })
+        p._backdropSet = true
+    elseif not p.SetBackdrop and not p._fallbackBg then
+        local bg = p:CreateTexture(nil, "BACKGROUND")
+        bg:SetAllPoints(true)
+        bg:SetColorTexture(0, 0, 0, 0.92)
+        p._fallbackBg = bg
+    end
+    if not p._closeBtn then
+        local close = CreateFrame("Button", nil, p, "UIPanelButtonTemplate")
+        close:SetSize(80, 22)
+        close:SetPoint("BOTTOM", p, "BOTTOM", 0, 16)
+        close:SetText("Close")
+        close:SetScript("OnClick", function() p:Hide() end)
+        p._closeBtn = close
+    end
+    p:Show()
+    Print("Options panel opened (standalone). Drag to move; Close to dismiss.")
 end
 
 --------------------------------------------------------------------------------
@@ -934,7 +971,7 @@ local function Init()
     ApplyPosition(); ApplyVisuals()
     EnsureOptionsPanel()
     Refresh()
-    Print("v" .. VERSION .. " ready. " .. DISPLAY_NAME .. " · " .. (ByJTT.Brand.web or "byjtt.com") .. " · |cff66c6ff/fbr config|r")
+    Print("v" .. VERSION .. " ready. " .. DISPLAY_NAME .. " - " .. (ByJTT.Brand.web or "byjtt.com") .. " - |cff66c6ff/fbr config|r")
     if not DB.onboardingDone and not DB.onboardingDismissed then
         -- show after a short moment so UI is settled; fallback if no timer
         if C_Timer and C_Timer.After then
@@ -977,7 +1014,7 @@ pcall(root.RegisterEvent, root, "PLAYER_TALENT_UPDATE")
 -- Slash commands (parity + debug). /fbr config opens WoW-authentic settings.
 --------------------------------------------------------------------------------
 local function Help()
-    Print(DISPLAY_NAME .. " — commands:")
+    Print(DISPLAY_NAME .. " - commands:")
     print("  /fbr config               open settings (WoW UI)")
     print("  /fbr lock | unlock        lock/unlock position (Shift+Drag moves)")
     print("  /fbr move                 show & unlock to reposition")
@@ -1016,7 +1053,7 @@ SlashCmdList.FOREVERBUFFREMINDER = function(msg)
     elseif cmd == "onboarding" or cmd == "welcome" then
         DB.onboardingDone=false; DB.onboardingDismissed=false; ShowOnboarding(true)
     elseif cmd == "lock" then
-        DB.locked = true; Print("Locked. (Shift+Drag still moves.)"); Refresh()
+        DB.locked = true; forceTest = false; Print("Locked. (Shift+Drag still moves.)"); Refresh()
     elseif cmd == "unlock" or cmd == "move" then
         DB.locked = false; forceTest = true
         Print("Unlocked - drag icons (Shift+Drag) to move, then /fbr lock."); Refresh()
@@ -1072,7 +1109,7 @@ SlashCmdList.FOREVERBUFFREMINDER = function(msg)
     end
 end
 
--- Binding display strings (Bindings.xml) — safe globals for WoW keybinding UI
+-- Binding display strings (Bindings.xml) - safe globals for WoW keybinding UI
 BINDING_HEADER_WOW_FOREVER_BUFF_REMINDER_ADDON_BYJTT = "WoW Forever Buff Reminder Addon ByJTT"
 BINDING_NAME_FBR_RELOADUI = "Reload UI"
 

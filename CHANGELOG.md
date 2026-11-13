@@ -5,13 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **Polish/foundation hardening:** fixed mojibake/encoding in docs and Lua, improved text/tooltip consistency.
+- **Options fallback:** when Blizzard Settings/InterfaceOptions are unavailable, `/fbr config` opens a standalone movable dialog with backdrop/close (WoW Forever/Classic-friendly).
+- **UX:** `/fbr lock` clears test-mode state so icons return to normal behavior after repositioning.
+
 ## [2.0.0] - 2026-05-08 (local foundation, not yet tagged/released)
 
 ### Added
 - **ByJTT foundation (reference):** `ByJTT` namespace/brand, compat providers (WoW Forever API fallbacks), schema-versioned SavedVariables (`_schema`/migrations), data-driven buff rule spec + registry, read/plan/apply evaluation engine, secure button pool.
 - **All-classes/races/buffs (curated v1):** curated class buff catalog with extensible spec; class/race-aware eligibility. Druid **Mark of the Wild** and **Thorns** preserved as migrated rules.
 - **WoW-authentic UX:** onboarding (first run, re-openable), Blizzard-native settings when available (`/fbr config`) with buff toggles, About/Support (placeholder), layout/scale/grow, test/debug.
-- **Branding:** “AddonName ByJTT” display name (`WoW Forever Buff Reminder Addon ByJTT`), byjtt.com + GitHub links, Buy Me a Coffee **placeholder** (replace with real URL before release).
+- **Branding:** "AddonName ByJTT" display name (`WoW Forever Buff Reminder Addon ByJTT`), byjtt.com + GitHub links, Buy Me a Coffee **placeholder** (replace with real URL before release).
 
 ### Changed
 - Scope expanded from Druid-only to foundation for all classes (curated v1). Legacy v1.0.1 settings migrated (`showMotW`/`showThorns`, position, toggles).

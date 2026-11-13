@@ -1,4 +1,4 @@
-# Contributing — WoW Forever Buff Reminder Addon ByJTT
+# Contributing - WoW Forever Buff Reminder Addon ByJTT
 
 Thanks for helping improve **WoW Forever Buff Reminder Addon ByJTT** (ByJTT foundation reference for WoW Forever). Keep it **small, reliable, taint-safe, and WoW-authentic**.
 
@@ -8,7 +8,7 @@ Thanks for helping improve **WoW Forever Buff Reminder Addon ByJTT** (ByJTT foun
 - **Combat lockdown:** do not change protected/secure attributes or restricted visibility in combat; defer to `PLAYER_REGEN_ENABLED`/pending.
 - **Minimal:** no frameworks/libs (no Ace) unless clearly necessary. Prefer simple Lua, small focused functions, no dead code.
 - **Privacy:** no personal data, account data, tokens/secrets, hardcoded local absolute paths, or `WTF`/SavedVariables data in commits/PRs. Public branding links (byjtt.com, GitHub, repo, support placeholder) are OK.
-- **Foundation discipline:** preserve data-driven buff spec/registry, schema migrations (additive; never destructively drop unknown keys), `/fbr` + settings parity, WoW Forever API feature-detection/fallbacks, and “AddonName ByJTT” branding.
+- **Foundation discipline:** preserve data-driven buff spec/registry, schema migrations (additive; never destructively drop unknown keys), `/fbr` + settings parity, WoW Forever API feature-detection/fallbacks, and "AddonName ByJTT" branding.
 - **Release sync:** TOC `## Version`, Lua `VERSION`/`SCHEMA` (as applicable), `CHANGELOG.md`, and git tag must match (SemVer).
 
 ## Reporting issues
